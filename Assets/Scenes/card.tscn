@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://dpch8vd55wsiy"]
+[gd_scene load_steps=60 format=3 uid="uid://dpch8vd55wsiy"]
 
 [ext_resource type="Script" path="res://Assets/Scenes/card.gd" id="1_fejg8"]
 [ext_resource type="Texture2D" uid="uid://p0umqmtqejkl" path="res://Assets/Cards/assets.png" id="1_pks6g"]
@@ -382,10 +382,66 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Animation" id="Animation_6ltkw"]
+resource_name = "menu"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-0.174533, 0.174533]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"mainMenuAnimLooped"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_o6wdg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b13hs"]
+_data = {
+"RESET": SubResource("Animation_o6wdg"),
+"menu": SubResource("Animation_6ltkw")
+}
+
 [node name="Card" type="Node2D"]
 script = ExtResource("1_fejg8")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_4c8kk")
-frame = 24
-frame_progress = 0.200207
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_b13hs")
+}
