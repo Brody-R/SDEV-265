@@ -15,6 +15,10 @@ run/main_scene="res://Assets/Scenes/main_menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
+[display]
+
+window/stretch/mode="canvas_items"
+
 [dotnet]
 
 project/assembly_name="SDEV265 Project"
@@ -22,3 +26,7 @@ project/assembly_name="SDEV265 Project"
 [gui]
 
 fonts/dynamic_fonts/use_oversampling=false
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=3
