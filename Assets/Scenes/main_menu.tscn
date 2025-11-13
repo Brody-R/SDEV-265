@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cu7h0eew86she"]
 
-[ext_resource type="LabelSettings" uid="uid://cmhtmc70kii0m" path="res://TitleLabelSettings.tres" id="1_8lni6"]
+[ext_resource type="LabelSettings" uid="uid://cmhtmc70kii0m" path="res://Assets/TitleLabelSettings.tres" id="1_neovj"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -25,7 +25,7 @@ alignment = 1
 [node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 text = "Blackjack"
-label_settings = ExtResource("1_8lni6")
+label_settings = ExtResource("1_neovj")
 horizontal_alignment = 1
 
 [node name="PlayBtn" type="Button" parent="VBoxContainer"]
