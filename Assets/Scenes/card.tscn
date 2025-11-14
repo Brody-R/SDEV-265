@@ -1,7 +1,8 @@
-[gd_scene load_steps=60 format=3 uid="uid://dpch8vd55wsiy"]
+[gd_scene load_steps=61 format=3 uid="uid://dpch8vd55wsiy"]
 
 [ext_resource type="Script" path="res://Assets/Scenes/card.gd" id="1_fejg8"]
 [ext_resource type="Texture2D" uid="uid://p0umqmtqejkl" path="res://Assets/Cards/assets.png" id="1_pks6g"]
+[ext_resource type="FontFile" uid="uid://c5ge3lijolhgo" path="res://Assets/BoldPixels.ttf" id="3_ylow4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q0iul"]
 atlas = ExtResource("1_pks6g")
@@ -382,6 +383,21 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Animation" id="Animation_o6wdg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
 [sub_resource type="Animation" id="Animation_6ltkw"]
 resource_name = "menu"
 length = 2.0
@@ -413,21 +429,6 @@ tracks/1/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_o6wdg"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_b13hs"]
 _data = {
 "RESET": SubResource("Animation_o6wdg"),
@@ -441,7 +442,37 @@ script = ExtResource("1_fejg8")
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_4c8kk")
 
+[node name="Control" type="Control" parent="AnimatedSprite2D"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -23.0
+offset_top = -32.0
+offset_right = 23.0
+offset_bottom = 32.0
+
+[node name="HoverTextLabel" type="RichTextLabel" parent="AnimatedSprite2D/Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -58.0
+offset_top = -17.0
+offset_right = 58.0
+grow_horizontal = 2
+tooltip_text = "
+"
+theme_override_fonts/normal_font = ExtResource("3_ylow4")
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+scroll_active = false
+autowrap_mode = 0
+shortcut_keys_enabled = false
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_b13hs")
 }
+
+[connection signal="mouse_entered" from="AnimatedSprite2D/Control" to="." method="_on_control_mouse_entered"]
+[connection signal="mouse_exited" from="AnimatedSprite2D/Control" to="." method="_on_control_mouse_exited"]
