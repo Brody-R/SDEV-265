@@ -101,7 +101,7 @@ func setCard(suit="Clubs",val=-1,raw=-1):
 		else:
 			mySuit = "Hearts"
 			myValue = possibleValues[raw-40]
-	print(self.get_name(), " ", mySuit, " ", myValue)
+	#print(self.get_name(), " ", mySuit, " ", myValue)
 
 func changeMyHoverText():
 	match myValue:
