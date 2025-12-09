@@ -28,6 +28,7 @@ expand_mode = 1
 stretch_mode = 1
 
 [node name="Pattern" type="TextureRect" parent="Background"]
+visible = false
 self_modulate = Color(0, 0, 0, 0.145098)
 texture_repeat = 2
 layout_mode = 1
@@ -40,51 +41,157 @@ texture = ExtResource("3_y3yoh")
 expand_mode = 1
 stretch_mode = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="Main" type="Control" parent="."]
 layout_mode = 1
-anchors_preset = 13
-anchor_left = 0.5
-anchor_right = 0.5
+anchors_preset = 15
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -35.5
-offset_right = 35.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="List" type="VBoxContainer" parent="Main"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -143.0
+offset_top = -93.0
+offset_right = 144.0
+offset_bottom = 167.0
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="VBoxContainer"]
+[node name="Label" type="Label" parent="Main/List"]
 layout_mode = 2
 text = "Blackjack"
 label_settings = ExtResource("1_neovj")
 horizontal_alignment = 1
 
-[node name="PlayBtn" type="Button" parent="VBoxContainer"]
+[node name="PlayBtn" type="Button" parent="Main/List"]
 layout_mode = 2
 text = "Play"
 
-[node name="SettingsBtn" type="Button" parent="VBoxContainer"]
+[node name="SettingsBtn" type="Button" parent="Main/List"]
 layout_mode = 2
 text = "Settings"
 
-[node name="RulesBtn" type="Button" parent="VBoxContainer"]
+[node name="RulesBtn" type="Button" parent="Main/List"]
 layout_mode = 2
 text = "How To Play"
 
-[node name="QuitBtn" type="Button" parent="VBoxContainer"]
+[node name="QuitBtn" type="Button" parent="Main/List"]
 layout_mode = 2
 text = "Quit"
 
-[node name="Card" parent="." instance=ExtResource("2_dvcnj")]
+[node name="Card" parent="Main" instance=ExtResource("2_dvcnj")]
 position = Vector2(320, 176)
 
-[node name="Card2" parent="." instance=ExtResource("2_dvcnj")]
+[node name="Card2" parent="Main" instance=ExtResource("2_dvcnj")]
 position = Vector2(448, 144)
 
-[node name="Card3" parent="." instance=ExtResource("2_dvcnj")]
+[node name="Card3" parent="Main" instance=ExtResource("2_dvcnj")]
 position = Vector2(576, 112)
 
-[node name="Card4" parent="." instance=ExtResource("2_dvcnj")]
+[node name="Card4" parent="Main" instance=ExtResource("2_dvcnj")]
 position = Vector2(704, 144)
 
-[node name="Card5" parent="." instance=ExtResource("2_dvcnj")]
+[node name="Card5" parent="Main" instance=ExtResource("2_dvcnj")]
 position = Vector2(832, 176)
+
+[node name="Help" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BGshade" type="ColorRect" parent="Help"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.501961)
+
+[node name="Label" type="Label" parent="Help"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -117.5
+offset_top = -86.0
+offset_right = 117.5
+offset_bottom = 86.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "How To Play:
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BackBtn" type="Button" parent="Help"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = 231.0
+offset_right = 303.0
+offset_bottom = 284.0
+grow_vertical = 2
+text = "< Return"
+
+[node name="Settings" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BGshade2" type="ColorRect" parent="Settings"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.501961)
+
+[node name="Label" type="Label" parent="Settings"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -117.5
+offset_top = -86.0
+offset_right = 117.5
+offset_bottom = 86.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Settings Test Menu
+
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BackBtn" type="Button" parent="Settings"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = 231.0
+offset_right = 303.0
+offset_bottom = 284.0
+grow_vertical = 2
+text = "< Return"

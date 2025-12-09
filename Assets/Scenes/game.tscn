@@ -1,0 +1,68 @@
+[gd_scene load_steps=5 format=3 uid="uid://ca21uqhdkecpl"]
+
+[ext_resource type="Texture2D" uid="uid://bvcm5pa70bll6" path="res://Assets/Textures/felt.png" id="2_kgc4o"]
+[ext_resource type="Texture2D" uid="uid://ckitacn7wg1ey" path="res://Assets/Textures/DiamondPatternA.png" id="3_0n1xj"]
+[ext_resource type="LabelSettings" uid="uid://cmhtmc70kii0m" path="res://Assets/TitleLabelSettings.tres" id="4_mp8qv"]
+[ext_resource type="PackedScene" uid="uid://dpch8vd55wsiy" path="res://Assets/Scenes/card.tscn" id="5_4l4rb"]
+
+[node name="Game" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="."]
+self_modulate = Color(1.15514e-06, 0.636547, 0.362807, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_kgc4o")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Pattern" type="TextureRect" parent="Background"]
+visible = false
+self_modulate = Color(0, 0, 0, 0.145098)
+texture_repeat = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_0n1xj")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Main" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="List" type="VBoxContainer" parent="Main"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -252.5
+offset_right = 252.5
+offset_bottom = 260.0
+grow_horizontal = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Main/List"]
+layout_mode = 2
+text = "Test Game Scene"
+label_settings = ExtResource("4_mp8qv")
+horizontal_alignment = 1
+
+[node name="Card5" parent="Main" instance=ExtResource("5_4l4rb")]
+position = Vector2(999, 354)
