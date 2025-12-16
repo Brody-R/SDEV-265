@@ -1,10 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://cu7h0eew86she"]
+[gd_scene load_steps=8 format=3 uid="uid://cu7h0eew86she"]
 
 [ext_resource type="Script" path="res://Assets/Scenes/main_menu.gd" id="1_dy76o"]
 [ext_resource type="LabelSettings" uid="uid://cmhtmc70kii0m" path="res://Assets/TitleLabelSettings.tres" id="1_neovj"]
 [ext_resource type="PackedScene" uid="uid://dpch8vd55wsiy" path="res://Assets/Scenes/card.tscn" id="2_dvcnj"]
 [ext_resource type="Texture2D" uid="uid://bvcm5pa70bll6" path="res://Assets/Textures/felt.png" id="2_g1m8g"]
 [ext_resource type="Texture2D" uid="uid://ckitacn7wg1ey" path="res://Assets/Textures/DiamondPatternA.png" id="3_y3yoh"]
+[ext_resource type="FontFile" uid="uid://c5ge3lijolhgo" path="res://Assets/BoldPixels.ttf" id="5_t3t6v"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ibstr"]
+font = ExtResource("5_t3t6v")
+font_size = 24
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -71,20 +76,69 @@ label_settings = ExtResource("1_neovj")
 horizontal_alignment = 1
 
 [node name="PlayBtn" type="Button" parent="Main/List"]
+custom_minimum_size = Vector2(0, 35)
 layout_mode = 2
+
+[node name="Label2" type="Label" parent="Main/List/PlayBtn"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "Play"
+label_settings = SubResource("LabelSettings_ibstr")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="SettingsBtn" type="Button" parent="Main/List"]
+custom_minimum_size = Vector2(0, 35)
 layout_mode = 2
+
+[node name="Label2" type="Label" parent="Main/List/SettingsBtn"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "Settings"
+label_settings = SubResource("LabelSettings_ibstr")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="RulesBtn" type="Button" parent="Main/List"]
+custom_minimum_size = Vector2(0, 35)
 layout_mode = 2
+
+[node name="Label2" type="Label" parent="Main/List/RulesBtn"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "How To Play"
+label_settings = SubResource("LabelSettings_ibstr")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="QuitBtn" type="Button" parent="Main/List"]
+custom_minimum_size = Vector2(0, 35)
 layout_mode = 2
-text = "Quit"
+
+[node name="Label2" type="Label" parent="Main/List/QuitBtn"]
+modulate = Color(1, 0.240133, 0.46179, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Quit Game"
+label_settings = SubResource("LabelSettings_ibstr")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Card" parent="Main" instance=ExtResource("2_dvcnj")]
 position = Vector2(320, 176)
