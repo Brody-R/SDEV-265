@@ -5,6 +5,7 @@ var possibleValues = ["K","Q","J",10,9,8,7,6,5,4,3,2,"A"]
 var mySuit = 0
 var myValue = "K"
 var currentlyVisible = false
+var DisplayName = true
 var myRawValue = 0
 var myHoverLabelText = " "
 var didAlready = false
@@ -153,7 +154,7 @@ func changeMyHoverText():
 	$AnimatedSprite2D/Control/HoverTextLabel.set_text(myHoverLabelText)
 	
 func _on_control_mouse_entered():
-	if $AnimatedSprite2D.frame > 0 :
+	if $AnimatedSprite2D.frame > 0 and DisplayName == true :
 		$AnimatedSprite2D/Control/HoverTextLabel.visible = true
 func _on_control_mouse_exited():
 	$AnimatedSprite2D/Control/HoverTextLabel.visible = false

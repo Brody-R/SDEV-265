@@ -3,7 +3,7 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	
+	var transitionNode = get_node("TransitionNode")
 	var baseNode = get_parent()
 	
 	var mainNode = get_node("Main")
@@ -28,21 +28,35 @@ func _ready():
 	)
 	
 	helpBtn.pressed.connect(func():
+		transitionNode.transition(true,0.3)
+		await transitionNode.transitionEvent
 		mainNode.visible = false
 		helpNode.visible = true
+		transitionNode.transition(false,0.3)
+		
 	)
 	helpBackBtn.pressed.connect(func():
+		transitionNode.transition(true,0.3)
+		await transitionNode.transitionEvent
 		mainNode.visible = true
 		helpNode.visible = false
+		transitionNode.transition(false,0.3)
+		
 	)
 
 	settingsBtn.pressed.connect(func():
+		transitionNode.transition(true,0.3)
+		await transitionNode.transitionEvent
 		mainNode.visible = false
 		settingsNode.visible = true
+		transitionNode.transition(false,0.3)
 	)
 	settingsBackBtn.pressed.connect(func():
+		transitionNode.transition(true,0.3)
+		await transitionNode.transitionEvent
 		mainNode.visible = true
 		settingsNode.visible = false
+		transitionNode.transition(false,0.3)
 	)
 	animateCards()
 	
@@ -65,8 +79,9 @@ func animateCards():
 	card5.animStartTime = float(0.0)
 	card5.mainMenu()
 	
-	card6.setCard(null,null,29)
+	card6.setCard(null,null,26)
 	card6.SetVisibility(true)
+	card6.DisplayName = false
 	card6.playAnim()
 
 

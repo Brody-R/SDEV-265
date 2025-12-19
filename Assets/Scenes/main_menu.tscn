@@ -1,13 +1,16 @@
-[gd_scene load_steps=14 format=3 uid="uid://cu7h0eew86she"]
+[gd_scene load_steps=19 format=3 uid="uid://cu7h0eew86she"]
 
 [ext_resource type="Script" path="res://Assets/Scenes/main_menu.gd" id="1_dy76o"]
 [ext_resource type="LabelSettings" uid="uid://cmhtmc70kii0m" path="res://Assets/TitleLabelSettings.tres" id="1_neovj"]
+[ext_resource type="PackedScene" uid="uid://cr41f5hfupjva" path="res://Assets/Scenes/transition_node.tscn" id="2_7n2ff"]
 [ext_resource type="PackedScene" uid="uid://dpch8vd55wsiy" path="res://Assets/Scenes/card.tscn" id="2_dvcnj"]
 [ext_resource type="Texture2D" uid="uid://bvcm5pa70bll6" path="res://Assets/Textures/felt.png" id="2_g1m8g"]
 [ext_resource type="Texture2D" uid="uid://ckitacn7wg1ey" path="res://Assets/Textures/DiamondPatternA.png" id="3_y3yoh"]
 [ext_resource type="FontFile" uid="uid://c5ge3lijolhgo" path="res://Assets/BoldPixels.ttf" id="5_t3t6v"]
 [ext_resource type="Texture2D" uid="uid://de5f75ytq5yg8" path="res://Assets/Textures/chip.png" id="6_d6bw6"]
 [ext_resource type="Script" path="res://Assets/Scenes/settings.gd" id="8_p6g6h"]
+[ext_resource type="Script" path="res://Assets/Scenes/rainbowFx.gd" id="8_qsgvh"]
+[ext_resource type="Theme" uid="uid://yxvydcg68iig" path="res://Assets/SettingsTheme.tres" id="11_abdvu"]
 
 [sub_resource type="Gradient" id="Gradient_t75ki"]
 offsets = PackedFloat32Array(0, 0.51341, 1)
@@ -31,6 +34,14 @@ line_spacing = 5.0
 font = ExtResource("5_t3t6v")
 font_size = 25
 
+[sub_resource type="LabelSettings" id="LabelSettings_irbow"]
+font = ExtResource("5_t3t6v")
+font_size = 50
+
+[sub_resource type="LabelSettings" id="LabelSettings_lckrk"]
+font = ExtResource("5_t3t6v")
+font_size = 50
+
 [node name="MainMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -39,6 +50,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_dy76o")
+
+[node name="TransitionNode" parent="." instance=ExtResource("2_7n2ff")]
+layout_mode = 1
 
 [node name="Background" type="TextureRect" parent="."]
 self_modulate = Color(1.15514e-06, 0.636547, 0.362807, 1)
@@ -340,10 +354,11 @@ layout_mode = 2
 text = "Credits"
 label_settings = SubResource("LabelSettings_nesbl")
 horizontal_alignment = 1
+script = ExtResource("8_qsgvh")
 
 [node name="Label9" type="Label" parent="Help/ScrollContainer/VBoxContainer"]
 layout_mode = 2
-text = "Arron Stichter - Project Lead
+text = "Aaron Stichter - Project Lead
 
 Matthew McMahon - Lead Programmer
 
@@ -354,6 +369,7 @@ Brody Rines - Music Composer / QA Tester
 Juan Silva - Designer"
 label_settings = SubResource("LabelSettings_uajtp")
 horizontal_alignment = 1
+script = ExtResource("8_qsgvh")
 
 [node name="BackBtn" type="Button" parent="Help"]
 layout_mode = 1
@@ -377,7 +393,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Return"
-label_settings = SubResource("LabelSettings_ibstr")
+label_settings = SubResource("LabelSettings_irbow")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -421,7 +437,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Return"
-label_settings = SubResource("LabelSettings_ibstr")
+label_settings = SubResource("LabelSettings_lckrk")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -452,22 +468,32 @@ grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Settings/Settings2/MarginContainer"]
 layout_mode = 2
+theme = ExtResource("11_abdvu")
 
 [node name="Label" type="Label" parent="Settings/Settings2/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("11_abdvu")
 text = "Volume"
 
 [node name="Volume" type="HSlider" parent="Settings/Settings2/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("11_abdvu")
 value = 100.0
 rounded = true
 
 [node name="Mute" type="CheckBox" parent="Settings/Settings2/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("11_abdvu")
 text = "Mute"
+
+[node name="AltMusic" type="CheckBox" parent="Settings/Settings2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("11_abdvu")
+text = "Alternate Music"
 
 [node name="Resolutions" type="OptionButton" parent="Settings/Settings2/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("11_abdvu")
 item_count = 4
 selected = 2
 popup/item_0/text = "1920x1080"
@@ -481,4 +507,5 @@ popup/item_3/id = 3
 
 [connection signal="value_changed" from="Settings/Settings2/MarginContainer/VBoxContainer/Volume" to="Settings/Settings2" method="_on_volume_value_changed"]
 [connection signal="toggled" from="Settings/Settings2/MarginContainer/VBoxContainer/Mute" to="Settings/Settings2" method="_on_mute_toggled"]
+[connection signal="toggled" from="Settings/Settings2/MarginContainer/VBoxContainer/AltMusic" to="Settings/Settings2" method="_on_alt_music_toggled"]
 [connection signal="item_selected" from="Settings/Settings2/MarginContainer/VBoxContainer/Resolutions" to="Settings/Settings2" method="_on_resolutions_item_selected"]
