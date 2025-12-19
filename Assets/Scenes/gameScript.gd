@@ -21,6 +21,7 @@ var chipInput
 var playerChipLabel
 var resultsTag
 var deckSprite
+var baseNode
 
 signal turn_ended
 signal buy_in
@@ -216,9 +217,18 @@ func playRound(chipsBet):
 		$coins1sfx.play()
 	updateChipLabel()
 	await get_tree().create_timer(1).timeout
-	reset()
-	await get_tree().create_timer(.5).timeout
-	buyInOptions.visible = true
+	await reset()
+	
+	
+	if playerChips <= 0:
+		resultsTag.text = "Bankrupt..."
+		$bankrupt.play()
+		resultsTag.visible = true
+		await get_tree().create_timer(4).timeout
+		baseNode.loadScene("MainMenu")
+	else:
+		await get_tree().create_timer(.5).timeout
+		buyInOptions.visible = true
 
 	
 func updateChipLabel():
@@ -257,7 +267,7 @@ func _ready():
 			buyinBtn.visible = false
 			
 	)
-	var baseNode = get_parent().get_parent()
+	baseNode = get_parent().get_parent()
 	$ReturnToMenu.pressed.connect(func():
 		baseNode.loadScene("MainMenu")
 	)

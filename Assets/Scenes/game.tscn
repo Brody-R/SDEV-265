@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://ca21uqhdkecpl"]
+[gd_scene load_steps=19 format=3 uid="uid://ca21uqhdkecpl"]
 
 [ext_resource type="Texture2D" uid="uid://bvcm5pa70bll6" path="res://Assets/Textures/felt.png" id="2_kgc4o"]
 [ext_resource type="Texture2D" uid="uid://ckitacn7wg1ey" path="res://Assets/Textures/DiamondPatternA.png" id="3_0n1xj"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://de5f75ytq5yg8" path="res://Assets/Textures/chip.png" id="5_afrvm"]
 [ext_resource type="AudioStream" uid="uid://de6ya8djo81wt" path="res://Assets/Audio/Shuffle.mp3" id="6_0v468"]
 [ext_resource type="AudioStream" uid="uid://bt0c6a6daea74" path="res://Assets/Audio/Coins1.mp3" id="7_2ym5y"]
+[ext_resource type="AudioStream" uid="uid://beffpk2nfve8b" path="res://Assets/Audio/bankrupt.WAV" id="7_x0rbf"]
 [ext_resource type="AudioStream" uid="uid://8vkm45q5rhbj" path="res://Assets/Audio/Coins2.mp3" id="8_pif37"]
 
 [sub_resource type="Gradient" id="Gradient_jfjgi"]
@@ -124,6 +125,10 @@ stream = ExtResource("8_pif37")
 [node name="ShuffleSfx" type="AudioStreamPlayer" parent="Main"]
 stream = ExtResource("6_0v468")
 volume_db = -3.805
+
+[node name="bankrupt" type="AudioStreamPlayer" parent="Main"]
+stream = ExtResource("7_x0rbf")
+volume_db = -6.64
 
 [node name="DealerPts" type="Label" parent="Main"]
 layout_mode = 1
