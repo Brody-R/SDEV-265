@@ -18,7 +18,7 @@ The first step to playing our game is to open the internet browser of your choos
 </p>
 
 <p>
-In the "Exports" folder, download the blackjack.exe file. 
+First, click on the "Exported" folder, then on the blackjack.exe file within. On the right hand side, click on the download symbol to "download raw file". Wait a few seconds for the file to finish downloading. 
 </p>
 
 ### *Launching the game*
