@@ -10,7 +10,7 @@ Welcome to the User Documentation page for Group 4’s final project, Blackjack.
 
 ## Installation
 
-### **Downloading the game**
+### *Downloading the game*
 ----------------------------------------------------------------------------------------------------
 
 <p>
@@ -18,10 +18,10 @@ The first step to playing our game is to open the internet browser of your choos
 </p>
 
 <p>
-In the right margin, click on the latest release under the **"Releases"** tab and download the .zip file. 
+In the right margin, click on the latest release under the "Releases" tab and download the .zip file. 
 </p>
 
-### **Launching the game**
+### *Launching the game*
 ----------------------------------------------------------------------------------------------------
 
 <p>
@@ -34,14 +34,14 @@ Locate the downloaded .zip file and move it to a safe/desired location. You will
 After launching the game, you will first be greeted with the main menu. Here you will see a few sub-menus we recommend you take a look at before heading into your first game. Those include the “How to Play” and “Settings” menus. 
 </p>
 
-### **Settings Menu**
+### *Settings Menu*
 ----------------------------------------------------------------------------------------------------
 
 <p>
 The settings menu gives a few customization options to help optimize your experience. Here you will find a Fullscreen/Windowed toggle, a resolution option and a volume slider.
 </p>
 
-### **How to Play Menu**
+### *How to Play Menu*
 ----------------------------------------------------------------------------------------------------
 
 <p>
@@ -50,7 +50,7 @@ The “How to Play” menu lays out the rules of classic Blackjack, as well as h
 
 ## Rules
 
-### **Objective**
+### *Objective*
 ----------------------------------------------------------------------------------------------------
 
 <p>
@@ -60,28 +60,28 @@ Your objective is to beat the dealer’s hand without going over 21 points yours
   - Ace cards are worth either 1 or 11 points and are up to the player to decide their value
 </p>
 
-### **Starting a Game**
-----------------------------------------------------------------------------------------------------
+### *Starting a Game**
+---------------------------------------------------------------------------------------------------
 
 <p>
 From the main menu, press Play to start a game. You will begin with an opportunity to place a bet with our fake in-game currency, represented with chips. If you beat the dealer’s hand without busting (going over 21), you will receive a 1:1 reward (if you bet one chip, you will receive your original chip plus one extra chip back). 
 </p>
 
-### **Passing Out Cards**
+### *Passing Out Cards*
 ----------------------------------------------------------------------------------------------------
 
 <p>
 The dealer will shuffle the cards, pass one card to the player face-up, and one card to themselves face-down. The dealer will next pass an additional card to the player, then to themselves, both face-up this time. 
 </p>
 
-### **Stay or Put?**
+### *Stay or Put?*
 ----------------------------------------------------------------------------------------------------
 
 <p>
 Based on the player’s own point total and the value of the dealer’s one face-up card, the player must determine if they will stay or put. Staying means telling the dealer you do not want another card to be added to your total. Putting means requesting another card. Players may draw as many cards as they like until they hit 21 or go over (bust). 
 </p>
 
-### **Game Over**
+### *Game Over*
 ----------------------------------------------------------------------------------------------------
 
 <p>
