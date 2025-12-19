@@ -53,6 +53,7 @@ func animateCards():
 	var card3 = get_node("Main/Card3")
 	var card4 = get_node("Main/Card4")
 	var card5 = get_node("Main/Card5")
+	var card6 = get_node("Help/Card6")
 	card.animStartTime = float(0.4)
 	card.mainMenu()
 	card2.animStartTime = float(0.3)
@@ -62,7 +63,11 @@ func animateCards():
 	card4.animStartTime = float(0.1)
 	card4.mainMenu()
 	card5.animStartTime = float(0.0)
-	card5.mainMenu()	
+	card5.mainMenu()
+	
+	card6.setCard(null,null,29)
+	card6.SetVisibility(true)
+	card6.playAnim()
 
 
 

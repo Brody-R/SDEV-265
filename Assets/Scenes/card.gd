@@ -4,12 +4,17 @@ var possibleSuits = ["Clubs","Spades","Diamonds","Hearts"]
 var possibleValues = ["K","Q","J",10,9,8,7,6,5,4,3,2,"A"]
 var mySuit = 0
 var myValue = "K"
+var currentlyVisible = false
+var myRawValue = 0
 var myHoverLabelText = " "
 var didAlready = false
 var animStartTime = float(0)
 var loopCount = 0
 const ctr1 = "[center]"
 const ctr2 = "[/center]"
+
+signal midFlip
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -19,10 +24,14 @@ func _ready():
 func _process(delta):
 	pass
 
+func playAnim():
+	$WobblePlayer.play("InGameWobble")
+	$WobblePlayer.seek(animStartTime)
+
 func mainMenu():
 	if didAlready == false:
-		$AnimationPlayer.play("menu")
-		$AnimationPlayer.seek(animStartTime)
+		$WobblePlayer.play("menu")
+		$WobblePlayer.seek(animStartTime)
 		didAlready = true
 	var valRNG = randi_range(1,13)
 	var suitRNG = randi_range(0,3)
@@ -33,6 +42,29 @@ func mainMenuAnimLooped():
 	if loopCount > 1: 
 		mainMenu()
 		loopCount = 0
+
+func setMidFlip():
+	midFlip.emit()
+
+
+func setSprite(val):
+	$AnimatedSprite2D.frame = val
+
+func SetVisibility(vis, playflip = false):
+	
+	if currentlyVisible != vis and playflip == true:
+		currentlyVisible = vis
+		$FlipPlayer.play("flip")
+		$FlipPlayer.seek(0)
+		$FlipSfx.play()
+		await midFlip
+	else:
+		currentlyVisible = vis
+	
+	if currentlyVisible == true:
+		setSprite(myRawValue)
+	else:
+		setSprite(0)
 
 func setCard(suit="Clubs",val=-1,raw=-1):
 	# Raw option exists in case our card system just pulls a number 0-51 / 1-52. We check it first to get it out of the way.
@@ -88,19 +120,22 @@ func setCard(suit="Clubs",val=-1,raw=-1):
 				myValue = possibleValues[val-40]
 				changeMyHoverText()
 	else:
-		$AnimatedSprite2D.frame = raw
+		myRawValue = raw
+		
 		if raw <= 13:
 			mySuit = "Clubs"
-			myValue = possibleValues[raw]
+			myValue = possibleValues[raw-1]
 		elif raw <= 26:
 			mySuit = "Spades"
 			myValue = possibleValues[raw-14]
 		elif raw <= 39:
-			mySuit = "Spades"
+			mySuit = "Diamonds"
 			myValue = possibleValues[raw-27]
 		else:
 			mySuit = "Hearts"
 			myValue = possibleValues[raw-40]
+			
+		changeMyHoverText()
 	#print(self.get_name(), " ", mySuit, " ", myValue)
 
 func changeMyHoverText():
@@ -118,7 +153,7 @@ func changeMyHoverText():
 	$AnimatedSprite2D/Control/HoverTextLabel.set_text(myHoverLabelText)
 	
 func _on_control_mouse_entered():
-	$AnimatedSprite2D/Control/HoverTextLabel.visible = true
-	
+	if $AnimatedSprite2D.frame > 0 :
+		$AnimatedSprite2D/Control/HoverTextLabel.visible = true
 func _on_control_mouse_exited():
 	$AnimatedSprite2D/Control/HoverTextLabel.visible = false

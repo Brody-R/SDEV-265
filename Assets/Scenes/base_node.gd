@@ -8,6 +8,7 @@ var currentScene: Node = null
 
 
 func _ready():
+	DisplayServer.window_set_size(Vector2i(1280, 720))
 	loadScene("MainMenu")
 
 func loadScene(desiredSceneName):
