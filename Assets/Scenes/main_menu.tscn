@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cu7h0eew86she"]
+[gd_scene load_steps=11 format=3 uid="uid://cu7h0eew86she"]
 
 [ext_resource type="Script" path="res://Assets/Scenes/main_menu.gd" id="1_dy76o"]
 [ext_resource type="LabelSettings" uid="uid://cmhtmc70kii0m" path="res://Assets/TitleLabelSettings.tres" id="1_neovj"]
@@ -6,6 +6,16 @@
 [ext_resource type="Texture2D" uid="uid://bvcm5pa70bll6" path="res://Assets/Textures/felt.png" id="2_g1m8g"]
 [ext_resource type="Texture2D" uid="uid://ckitacn7wg1ey" path="res://Assets/Textures/DiamondPatternA.png" id="3_y3yoh"]
 [ext_resource type="FontFile" uid="uid://c5ge3lijolhgo" path="res://Assets/BoldPixels.ttf" id="5_t3t6v"]
+[ext_resource type="Texture2D" uid="uid://de5f75ytq5yg8" path="res://Assets/Textures/chip.png" id="6_d6bw6"]
+
+[sub_resource type="Gradient" id="Gradient_t75ki"]
+offsets = PackedFloat32Array(0, 0.51341, 1)
+colors = PackedColorArray(0, 0, 0, 0.235294, 0, 0, 0, 0, 0, 0, 0, 0.235294)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_yeok2"]
+gradient = SubResource("Gradient_t75ki")
+height = 648
+fill_to = Vector2(0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_ibstr"]
 font = ExtResource("5_t3t6v")
@@ -43,6 +53,19 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_y3yoh")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Shading" type="TextureRect" parent="Background"]
+modulate = Color(1, 1, 1, 0.631373)
+texture_repeat = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_yeok2")
 expand_mode = 1
 stretch_mode = 1
 
@@ -90,6 +113,30 @@ text = "Play"
 label_settings = SubResource("LabelSettings_ibstr")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Main/List/PlayBtn"]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 32.0
+offset_bottom = -4.0
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("6_d6bw6")
+expand_mode = 5
+
+[node name="TextureRect" type="TextureRect" parent="Main/List/PlayBtn/TextureRect"]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 251.0
+offset_right = 279.0
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("6_d6bw6")
+expand_mode = 5
 
 [node name="SettingsBtn" type="Button" parent="Main/List"]
 custom_minimum_size = Vector2(0, 35)
