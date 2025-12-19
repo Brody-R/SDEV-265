@@ -60,7 +60,7 @@ Your objective is to beat the dealer’s hand without going over 21 points yours
   - Ace cards are worth either 1 or 11 points and are up to the player to decide their value
 </p>
 
-### *Starting a Game**
+### *Starting a Game*
 ---------------------------------------------------------------------------------------------------
 
 <p>
